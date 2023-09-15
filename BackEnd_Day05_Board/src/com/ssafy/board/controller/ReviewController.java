@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.ssafy.board.model.dto.Video;
 import com.ssafy.board.moel.service.BoardService;
 import com.ssafy.board.moel.service.BoardServiceImpl;
+import com.ssafy.board.moel.service.ReviewService;
+import com.ssafy.board.moel.service.ReviewServiceImpl;
 
 @WebServlet("/main")
 public class ReviewController extends HttpServlet {
@@ -30,7 +32,7 @@ public class ReviewController extends HttpServlet {
 	Video video8 = new Video("7TLk7pscICk", "(Sub)누워서하는 5분 복부운동!! 효과보장! (매일 2주만 해보세요!)", "복부", "SomiFit", "https://www.youtube.com/embed/7TLk7pscICk");
 
 	// 의존성 주입
-	private BoardService service = BoardServiceImpl.getInstance();
+	private ReviewService service = ReviewServiceImpl.getInstance();
 
 	// post 요청시 encoding 변경
 	@Override

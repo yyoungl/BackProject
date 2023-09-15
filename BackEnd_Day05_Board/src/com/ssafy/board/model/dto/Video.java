@@ -8,16 +8,19 @@ public class Video {
 	private String fitPartName;
 	private String channelName;
 	private int viewCnt;
+	private String url; 
+	
+	
 	public Video() {
 		
 	}
-	public Video(String videoId, String title, String fitPartName, String channelName, int viewCnt) {
+	public Video(String videoId, String title, String fitPartName, String channelName, String url) {
 		super();
 		this.videoId = videoId;
 		this.title = title;
 		this.fitPartName = fitPartName;
 		this.channelName = channelName;
-		this.viewCnt = viewCnt;
+		this.url = url;
 	}
 	public String getVideoId() {
 		return videoId;
@@ -46,9 +49,5 @@ public class Video {
 	public int getViewCnt() {
 		return viewCnt;
 	}
-	public void setViewCnt(int viewCnt) {
-		this.viewCnt = viewCnt;
-	}
-	
 	
 }
