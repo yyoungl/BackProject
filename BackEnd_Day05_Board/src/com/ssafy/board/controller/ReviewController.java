@@ -22,21 +22,21 @@ public class ReviewController extends HttpServlet {
 	List<Video> videosByPart = new ArrayList<>();
 
 	Video video1 = new Video("gMaB-fG4u4g", "전신 다이어트 최고의 운동 [칼소폭 찐 핵핵매운맛]", "전신", "ThankyouBUBU",
-			"https://www.youtube.com/embed/gMaB-fG4u4g?si=PFmf7UIvsmH7OwPZ");
+			"https://www.youtube.com/embed/gMaB-fG4u4g");
 	Video video2 = new Video("swRNeYw1JkY", "하루 15분! 전신 칼로리 불태우는 다이어트 운동", "전신", "ThankyouBUBU",
-			"https://www.youtube.com/embed/swRNeYw1JkY?si=s2kYpUF6PMGRzhft");
+			"https://www.youtube.com/embed/swRNeYw1JkY");
 	Video video3 = new Video("54tTYO-vU2E", "상체 다이어트 최고의 운동 BEST [팔뚝살/겨드랑이살/등살/가슴어깨라인]", "상체", "ThankyouBUBU",
-			"https://www.youtube.com/embed/54tTYO-vU2E?si=9VVanQNVQGK-2y9M");
+			"https://www.youtube.com/embed/54tTYO-vU2E");
 	Video video4 = new Video("QqqZH3j_vH0", "상체비만 다이어트 최고의 운동 [상체 핵매운맛]", "상체", "ThankyouBUBU",
-			"https://www.youtube.com/embed/QqqZH3j_vH0?si=_Xj8sU-plIPIMBpQ");
+			"https://www.youtube.com/embed/QqqZH3j_vH0");
 	Video video5 = new Video("tzN6ypk6Sps", "하체운동이 중요한 이유? 이것만 보고 따라하자 ! [하체운동 교과서]", "하체", "김강민",
-			"https://www.youtube.com/embed/tzN6ypk6Sps?si=6zILeoSdkIYidpKH");
+			"https://www.youtube.com/embed/tzN6ypk6Sps");
 	Video video6 = new Video("u5OgcZdNbMo", "저는 하체 식주의자 입니다", "하체", "GYM종국",
-			"https://www.youtube.com/embed/u5OgcZdNbMo?si=TWb46jyEENRucNrt");
+			"https://www.youtube.com/embed/u5OgcZdNbMo");
 	Video video7 = new Video("PjGcOP-TQPE", "11자복근 복부 최고의 운동 [복근 핵매운맛]", "복부", "ThankyouBUBU",
-			"https://www.youtube.com/embed/PjGcOP-TQPE?si=o8idEtwL0dQzubHZ");
+			"https://www.youtube.com/embed/PjGcOP-TQPE");
 	Video video8 = new Video("7TLk7pscICk", "(Sub)누워서하는 5분 복부운동!! 효과보장! (매일 2주만 해보세요!)", "복부", "SomiFit",
-			"https://www.youtube.com/embed/7TLk7pscICk?si=KiR-QDGCtJBQyjCN");
+			"https://www.youtube.com/embed/7TLk7pscICk");
 
 	// 의존성 주입
 	private ReviewService service = ReviewServiceImpl.getInstance();
@@ -105,31 +105,41 @@ public class ReviewController extends HttpServlet {
 
 	private void doCreate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
+		String videoId = request.getParameter("videoId");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		request.setAttribute("title", title);
-		request.setAttribute("content", content);
+		Review review = new Review(videoId, reviewList.size(), title, "김싸피", content, 0);
+		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewCreate.jsp").forward(request, response);
 	}
 
 	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-
-		request.setAttribute("title", title);
-		request.setAttribute("content", content);
+		// TODO Auto-generated method stub
+		
+		Review review = (Review) request.getAttribute("review");
+		int reviewId = review.getReviewId();
+		int viewCnt = service.getReview(reviewId).getViewCnt();
+		service.getReview(reviewId).setViewCnt(viewCnt++);
+		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
 	private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Review review = (Review) request.getAttribute("review");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		request.setAttribute("title", title);
-		request.setAttribute("content", content);
+		review.setTitle(title);
+		review.setContent(content);
+		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
+//	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
+//		// TODO Auto-generated method stub
+//	}
 //	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
 //		// TODO Auto-generated method stub
 //	}
