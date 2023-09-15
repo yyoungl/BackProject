@@ -78,7 +78,7 @@ input {
 </style>
 </head>
 <body>
-	<a href="./main?act=reviewList"></a>
+<a href="./main?act=reviewList"></a>
 	<header>
 		<nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
@@ -144,20 +144,46 @@ input {
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 									allowfullscreen></iframe>
 							</div>
-							<div class="mt-1 mb-1 d-flex text-wrap">${video.title }</div>
+						</div>
+					</div>
+				</div>
+				<div onclick="location.href='/review/reviewList.html'"
+					style="cursor: pointer; width: 30%;">
+					<div class="text-wrap fw-bold">
+						<div>
+							<img
+								src="https://i.ytimg.com/vi/54tTYO-vU2E/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDxWlfWshc8D0IBhLDgV_oy_9u31A">
+						</div>
+						<div>
+							<div class="mt-1 mb-1 d-flex text-wrap">상체 다이어트 최고의 운동 BEST
+								[팔뚝...</div>
 							<div class="justify-content-between d-flex">
 								<span
 									class="p-1 rounded-pill fw-bold bg-primary w-auto text-white">
-									${video.fitPartName } </span> <span
-									class="fw-normal text-body-secondary">${video.channelName}</span>
+									상체 </span> <span class="fw-normal text-body-secondary">ThankyouBUBU</span>
 							</div>
 						</div>
 					</div>
-				</c:forEach>
+				</div>
+				<div onclick="location.href='/review/reviewList.html'"
+					style="cursor: pointer; width: 30%;">
+					<div class="text-wrap fw-bold">
+						<div>
+							<img
+								src="https://i.ytimg.com/vi/PjGcOP-TQPE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC2EPwTCFD11Xc1Fj4B-FMAv0aBZQ">
+						</div>
+						<div class="mt-1 mb-1 d-flex text-wrap">11자복근 복부 최고의 운동 [복근
+							핵매운맛]</div>
+						<div class="justify-content-between d-flex">
+							<span
+								class="p-1 rounded-pill fw-bold bg-primary w-auto text-white">
+								상체 </span> <span class="fw-normal text-body-secondary">ThankyouBUBU</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-
-		<div class=" video-box">
+		<div class="mt-5 video-box">
 			<div>
 				<p class="fw-bold text-left fs-4">운동 부위 선택</p>
 			</div>
@@ -174,19 +200,45 @@ input {
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 									allowfullscreen></iframe>
 							</div>
-							<div class="mt-1 mb-1 d-flex text-wrap">${video.title }</div>
+						</div>
+					</div>
+				</div>
+				<div onclick="location.href='/review/reviewList.html'"
+					style="cursor: pointer; width: 30%;">
+					<div class="text-wrap fw-bold">
+						<div>
+							<img
+								src="https://i.ytimg.com/vi/tzN6ypk6Sps/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAAxHIjOn8ti0G7vnAhfOIu_s27tQ"">
+						</div>
+						<div>
+							<div class="mt-1 mb-1 d-flex text-wrap">하체운동이 중요한 이유? 이것만
+								보고 따라하자 !...</div>
 							<div class="justify-content-between d-flex">
 								<span
 									class="p-1 rounded-pill fw-bold bg-primary w-auto text-white">
-									${video.fitPartName } </span> <span
-									class="fw-normal text-body-secondary">${video.channelName}</span>
+									하체 </span> <span class="fw-normal text-body-secondary">김강민</span>
 							</div>
 						</div>
 					</div>
-				</c:forEach>
+				</div>
+				<div onclick="location.href='/review/reviewList.html'"
+					style="cursor: pointer; width: 30%;">
+					<div class="text-wrap fw-bold">
+						<div>
+							<img
+								src="https://i.ytimg.com/vi/swRNeYw1JkY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBh28XjfqHktz6Lq1CIQ7IrbFtOYg">
+						</div>
+						<div class="mt-1 mb-1 d-flex text-wrap">하루 15분! 전신 칼로리 불태우는
+							다이어트 운동</div>
+						<div class="justify-content-between d-flex">
+							<span
+								class="p-1 rounded-pill fw-bold bg-primary w-auto text-white">
+								전신 </span> <span class="fw-normal text-body-secondary">ThankyouBUBU</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-
 	</div>
 	</div>
 
