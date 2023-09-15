@@ -9,6 +9,7 @@ public class Review {
 	private String writer;
 	private String regDate; // new Date().toString();
 	private String content;
+	private int viewCnt;
 	
 	public Review() {
 		
@@ -22,6 +23,7 @@ public class Review {
 		this.writer = writer;
 		this.content = content;
 		this.regDate = new Date().toString();
+		this.viewCnt = 0;
 	}
 
 	public String getVideoId() {
@@ -70,6 +72,14 @@ public class Review {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getViewCnt() {
+		return viewCnt;
+	}
+
+	public void setViewCnt(int viewCnt) {
+		this.viewCnt = viewCnt;
 	}
 	
 	

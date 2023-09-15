@@ -103,7 +103,6 @@ public class ReviewController extends HttpServlet {
 
 	private void doCreate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		request.setAttribute("title", title);
@@ -112,9 +111,9 @@ public class ReviewController extends HttpServlet {
 	}
 
 	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+
 		request.setAttribute("title", title);
 		request.setAttribute("content", content);
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
