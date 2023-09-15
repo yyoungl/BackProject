@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ssafy.board.model.dto.Review;
 import com.ssafy.board.model.dto.Video;
 import com.ssafy.board.moel.service.ReviewService;
 import com.ssafy.board.moel.service.ReviewServiceImpl;
@@ -80,15 +81,16 @@ public class ReviewController extends HttpServlet {
 	private void doReviewList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String videoId = (String) request.getAttribute("videoId");
-		
-		
-		request.getRequestDispatcher("/board.reviewList.jsp").forward(request, response);
+		List<Review> reviewList = service.getList(videoId);
+		request.setAttribute("reviewList", reviewList);
+		request.setAttribute("videoId", videoId);
+		request.getRequestDispatcher("/board/reviewList.jsp").forward(request, response);
 		
 	}
 
-	private void doCreate(HttpServletRequest request, HttpServletResponse response) {
+	private void doCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		request.getRequestDispatcher("/board/addReview.jsp").forward(request, response);
 	}
 
 	private void doDetail(HttpServletRequest request, HttpServletResponse response) {

@@ -77,7 +77,7 @@ input {
 </style>
 </head>
 <body>
-<a href="/main?action=reviewList"></a>
+<a href="./main?act=reviewList"></a>
 	<header>
 		<nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
