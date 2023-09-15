@@ -143,7 +143,7 @@ input {
                     <th class="border-bottom p-3">조회수</th>
                     <th class="border-bottom p-3">작성시간</th>
                   </tr>
-                  <tr onclick="location.href='reviewDetail.html'" style="cursor: pointer; text-decoration: underline;" class="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
+                  <tr onclick="location.href='./main?act=reviewDetail'" style="cursor: pointer; text-decoration: underline;" class="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
                     <td class="p-3">4</td>
                     <td class="p-3">와~효과만점 운동 영상입니다.</td>
                     <td class="p-3">a</td>

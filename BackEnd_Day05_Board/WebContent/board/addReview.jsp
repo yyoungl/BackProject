@@ -119,16 +119,16 @@ input {
 
             <div class="mb-3">
                 <label for="inputTitle" class="col-form-label">제목</label>
-                <input type="text" class="form-control" id="inputEmail3" placeholder="제목을 입력하세요">
+                <input type="text" class="form-control" id="inputEmail3" name="title" placeholder="제목을 입력하세요">
             </div>
 
             <div class="mb-4">
                 <label for="inputContent" class="col-form-label">내용</label>
-                <textarea class="form-control" rows="3" placeholder="내용을 입력하세요"></textarea>
+                <textarea class="form-control" rows="3" name="content" placeholder="내용을 입력하세요"></textarea>
             </div>
 
-            <button type="button" onclick="location.href='reviewList.html'" class="w-20 me-2 btn btn-outline-primary">등록</button>
-            <button type="button" onclick="location.href='reviewList.html'" class="w-20 btn btn-outline-danger">취소</button>
+            <button type="button" onclick="location.href='./main?act=reviewCreate'" class="w-20 me-2 btn btn-outline-primary">등록</button>
+            <button type="button" onclick="location.href='./main?act=reviewList'" class="w-20 btn btn-outline-danger">취소</button>
         
         </form>
     </div>

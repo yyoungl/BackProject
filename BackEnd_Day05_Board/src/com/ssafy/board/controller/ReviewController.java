@@ -73,14 +73,14 @@ public class ReviewController extends HttpServlet {
 	}
 	
 	private void doMain(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("videosByView", videosByView.get(0));
-		request.setAttribute("videosByPart", videosByPart.get(0));
+		request.setAttribute("videosByView", videosByView);
+		request.setAttribute("videosByPart", videosByPart);
 		request.getRequestDispatcher("/board/main.jsp").forward(request, response);
 	}
 
 	private void doReviewList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String videoId = (String) request.getAttribute("videoId");
+		String videoId = request.getParameter("videoId");
 		List<Review> reviewList = service.getList(videoId);
 		request.setAttribute("reviewList", reviewList);
 		request.setAttribute("videoId", videoId);
@@ -90,17 +90,29 @@ public class ReviewController extends HttpServlet {
 
 	private void doCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/board/addReview.jsp").forward(request, response);
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		request.setAttribute("title", title);
+		request.setAttribute("content", content);
+		request.getRequestDispatcher("/board/reviewCreate.jsp").forward(request, response);
 	}
 
-	private void doDetail(HttpServletRequest request, HttpServletResponse response) {
+	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		request.setAttribute("title", title);
+		request.setAttribute("content", content);
+		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
-	private void doUpdate(HttpServletRequest request, HttpServletResponse response) {
+	private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		request.setAttribute("title", title);
+		request.setAttribute("content", content);
+		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
 //	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
