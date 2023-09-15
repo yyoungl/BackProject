@@ -49,5 +49,13 @@ public class Video {
 	public int getViewCnt() {
 		return viewCnt;
 	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	
 	
 }

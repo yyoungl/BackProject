@@ -139,7 +139,7 @@ input {
 						<div class="text-wrap fw-bold me-3 mr-3">
 							<div class="text-center">
 								<iframe width="100%" height="auto"
-									src="https://www.youtube.com/embed/gg7b93k3p8c?si=n8mWIxPpeGMGhBvn"
+									src="${video.url }"
 									title="YouTube video player" frameborder="0"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 									allowfullscreen></iframe>
@@ -169,7 +169,7 @@ input {
 						<div class="text-wrap fw-bold me-3 mr-3">
 							<div class="text-center">
 								<iframe width="100%" height="auto"
-									src="https://www.youtube.com/embed/gg7b93k3p8c?si=n8mWIxPpeGMGhBvn"
+									src="${video.url }"
 									title="YouTube video player" frameborder="0"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 									allowfullscreen></iframe>
