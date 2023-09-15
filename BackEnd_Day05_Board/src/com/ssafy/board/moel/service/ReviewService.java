@@ -7,7 +7,7 @@ import com.ssafy.board.model.dto.Review;
 
 public interface ReviewService {
 	
-	List<Review> getList();
+	List<Review> getList(String videoId);
 	void writeReview(Review review);
 	Review getReview(int id);
 	void modifyReview(Review review);

@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ssafy.board.model.dto.Video;
-//import com.ssafy.board.moel.service.BoardService;
-//import com.ssafy.board.moel.service.BoardServiceImpl;
 import com.ssafy.board.moel.service.ReviewService;
 import com.ssafy.board.moel.service.ReviewServiceImpl;
 
