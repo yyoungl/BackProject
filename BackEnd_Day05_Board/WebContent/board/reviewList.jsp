@@ -123,7 +123,7 @@ input {
               <hr class="mb-3">
   
               <div class="d-flex justify-content-between">
-                  <button type="button" onclick="location.href='addReview.html'" class="w-20 me-2 btn btn-outline-primary">글 작성</button>
+                  <button type="button" onclick="location.href='./main?act=reviewCreate'" class="w-20 me-2 btn btn-outline-primary">글 작성</button>
                   <div style = "border-bottom: solid gray 1px;" class="d-flex align-items-center">
                     <span class="material-symbols-outlined align-items-center">search</span>
   
