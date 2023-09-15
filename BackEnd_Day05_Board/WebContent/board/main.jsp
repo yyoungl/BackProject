@@ -207,13 +207,16 @@ input {
 				class="shadow mt-8  pe-3 ps-3 pt-4 pb-4 d-flex video-list w-100 justify-content-around">
 				<div onclick="location.href='/review/reviewList.html'"
 					style="cursor: pointer; width: 30%;">
-					
-					<div> ${videosByView.videoId } </div>					
-					
+
+					<div>${videosByView.videoId }</div>
+
 					<div class="text-wrap fw-bold">
-						<div>
-							<img
-								src="https://i.ytimg.com/vi/u5OgcZdNbMo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAaopAKEGym2ylTOaiJBfajdXHjlA">
+						<div class="text-center">
+							<iframe width="560" height="315"
+								src="https://www.youtube.com/embed/PjGcOP-TQPE"
+								title="YouTube video player" frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowfullscreen></iframe>
 						</div>
 						<div>
 							<div class="mt-1 mb-1 d-flex text-wrap">저는 하체 식주의자 입니다</div>
@@ -225,40 +228,7 @@ input {
 						</div>
 					</div>
 				</div>
-				<div onclick="location.href='/review/reviewList.html'"
-					style="cursor: pointer; width: 30%;">
-					<div class="text-wrap fw-bold">
-						<div>
-							<img
-								src="https://i.ytimg.com/vi/tzN6ypk6Sps/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAAxHIjOn8ti0G7vnAhfOIu_s27tQ"">
-						</div>
-						<div>
-							<div class="mt-1 mb-1 d-flex text-wrap">하체운동이 중요한 이유? 이것만
-								보고 따라하자 !...</div>
-							<div class="justify-content-between d-flex">
-								<span
-									class="p-1 rounded-pill fw-bold bg-primary w-auto text-white">
-									하체 </span> <span class="fw-normal text-body-secondary">김강민</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div onclick="location.href='/review/reviewList.html'"
-					style="cursor: pointer; width: 30%;">
-					<div class="text-wrap fw-bold">
-						<div>
-							<img
-								src="https://i.ytimg.com/vi/swRNeYw1JkY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBh28XjfqHktz6Lq1CIQ7IrbFtOYg">
-						</div>
-						<div class="mt-1 mb-1 d-flex text-wrap">하루 15분! 전신 칼로리 불태우는
-							다이어트 운동</div>
-						<div class="justify-content-between d-flex">
-							<span
-								class="p-1 rounded-pill fw-bold bg-primary w-auto text-white">
-								전신 </span> <span class="fw-normal text-body-secondary">ThankyouBUBU</span>
-						</div>
-					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>

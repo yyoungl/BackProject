@@ -74,11 +74,11 @@ public class ReviewController extends HttpServlet {
 	private void doMain(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("videosByView", videosByView.get(0));
 		request.setAttribute("videosByPart", videosByPart.get(0));
-		request.getRequestDispatcher("/board/main").forward(request, response);
+		request.getRequestDispatcher("/board/main.jsp").forward(request, response);
 	}
 
+	// 리뷰 리스트 조회 (영상 상세)
 	private void doReviewList(HttpServletRequest request, HttpServletResponse response) {
-		
 //		request.setAttribute("", )
 //		request.
 	}
