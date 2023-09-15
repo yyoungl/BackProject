@@ -156,10 +156,10 @@ input {
 				</c:forEach>
 			</div>
 		</div>
-		
-				<div class=" video-box">
+
+		<div class=" video-box">
 			<div>
-				<p class="fw-bold text-left fs-4">최근 가장 많이 본 영상</p>
+				<p class="fw-bold text-left fs-4">운동 부위 선택</p>
 			</div>
 			<div
 				class="shadow pe-3 ps-3 pt-4 pb-4 d-flex video-list w-100 justify-content-around">

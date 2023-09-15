@@ -79,7 +79,7 @@ public class ReviewController extends HttpServlet {
 			videosByView.add(video3);
 			videosByView.add(video7);
 		}
-		if (videosByView.size() == 0) {
+		if (videosByPart.size() == 0) {
 			videosByPart.add(video6);
 			videosByPart.add(video5);
 			videosByPart.add(video2);
