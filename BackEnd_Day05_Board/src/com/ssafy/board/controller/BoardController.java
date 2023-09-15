@@ -14,10 +14,8 @@ import com.ssafy.board.moel.service.BoardServiceImpl;
 @WebServlet("/board")
 public class BoardController extends HttpServlet {
 	
-	// 의존성 주입
 	private BoardService service = BoardServiceImpl.getInstance();
 	
-	// post 요청시 encoding 변경
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getMethod().equals("POST"))
@@ -37,6 +35,6 @@ public class BoardController extends HttpServlet {
 
 	private void doList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("list", service.getList());
-		request.getRequestDispatcher("/board/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/board/main.jsp").forward(request, response);
 	}
 }
