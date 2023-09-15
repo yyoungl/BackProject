@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,11 +145,11 @@ input {
                     <th class="border-bottom p-3">작성시간</th>
                   </tr>
                   <tr onclick="location.href='./main?act=reviewDetail'" style="cursor: pointer; text-decoration: underline;" class="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
-                    <td class="p-3">4</td>
-                    <td class="p-3">와~효과만점 운동 영상입니다.</td>
-                    <td class="p-3">a</td>
-                    <td class="p-3">0</td>
-                    <td class="p-3">2022-01-05 01:32:37</td>
+                    <td class="p-3"></td>
+                    <td class="p-3"></td>
+                    <td class="p-3"></td>
+                    <td class="p-3"></td>
+                    <td class="p-3"></td>
                   </tr>
                 </table>
   

@@ -93,10 +93,12 @@ public class ReviewController extends HttpServlet {
 	private void doReviewList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String videoId = (String) request.getAttribute("videoId");
+		String videoId = request.getParameter("videoId");
+		String url = request.getParameter("url");
 		List<Review> reviewList = service.getList(videoId);
 		request.setAttribute("reviewList", reviewList);
 		request.setAttribute("videoId", videoId);
+		request.setAttribute("url", url);
 		request.getRequestDispatcher("/board/reviewList.jsp").forward(request, response);
 
 	}
@@ -113,8 +115,10 @@ public class ReviewController extends HttpServlet {
 
 	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		
 		request.setAttribute("title", title);
 		request.setAttribute("content", content);
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
@@ -129,8 +133,8 @@ public class ReviewController extends HttpServlet {
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
-//	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
-//		// TODO Auto-generated method stub
-//	}
+	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+	}
 
 }
