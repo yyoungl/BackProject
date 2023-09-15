@@ -117,15 +117,15 @@ input {
     
                 <div class="mb-3">
                     <label for="inputTitle" class="col-form-label">제목</label>
-                    <input type="text" class="form-control" id="inputEmail3" value="와~효과만점 운동 영상입니다.">
+                    <input type="text" class="form-control" id="inputEmail3" value="${review.title }">
                 </div>
     
                 <div class="mb-4">
                     <label for="inputContent" class="col-form-label">수정할 내용</label>
-                    <textarea class="form-control" type="text" rows="3">강추!! 강추!!</textarea>
+                    <textarea class="form-control" type="text" rows="3">${review.content }</textarea>
                 </div>
     
-                <button type="button" onclick="location.href='reviewList.html'" class="w-20 me-2 btn btn-outline-primary">수정</button>
+                <button type="button" onclick="location.href='./main?act=reviewUpdate'" class="w-20 me-2 btn btn-outline-primary">수정</button>
                 <button type="button" onclick="location.href='reviewList.html'" class="w-20 btn btn-outline-danger">취소</button>
             
             </form>
