@@ -207,6 +207,9 @@ input {
 				class="shadow mt-8  pe-3 ps-3 pt-4 pb-4 d-flex video-list w-100 justify-content-around">
 				<div onclick="location.href='/review/reviewList.html'"
 					style="cursor: pointer; width: 30%;">
+					
+					<div> ${videosByView.videoId } </div>					
+					
 					<div class="text-wrap fw-bold">
 						<div>
 							<img
