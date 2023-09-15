@@ -133,8 +133,8 @@ public class ReviewController extends HttpServlet {
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
-	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-	}
+//	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
+//		// TODO Auto-generated method stub
+//	}
 
 }

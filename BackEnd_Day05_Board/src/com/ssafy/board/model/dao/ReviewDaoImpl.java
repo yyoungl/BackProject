@@ -30,6 +30,7 @@ public class ReviewDaoImpl implements ReviewDao {
 
 	@Override
 	public void insertReview(Review review) {
+		review.setReviewId(reviews.size());
 		reviews.add(review);
 		return;
 	}

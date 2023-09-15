@@ -133,6 +133,16 @@ input {
 			</div>
 			<div
 				class="shadow pe-3 ps-3 pt-4 pb-4 d-flex video-list w-100 justify-content-around">
+				<c:forEach var="video" items="${videosByView}">
+					<div onclick="location.href='./main?act=reviewList'"
+						style="cursor: pointer; width: 30%;">
+						<div class="text-wrap fw-bold me-3 mr-3">
+							<div class="text-center">
+								<iframe width="100%" height="auto"
+									src="${video.url }"
+									title="YouTube video player" frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									allowfullscreen></iframe>
 				<div onclick="location.href='/review/reviewList.html'"
 					style="cursor: pointer; width: 30%;">
 					<div class="text-wrap fw-bold">
