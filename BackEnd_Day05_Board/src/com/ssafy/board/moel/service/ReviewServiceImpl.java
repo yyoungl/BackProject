@@ -19,41 +19,30 @@ public class ReviewServiceImpl implements ReviewService {
 		return service;
 	}
 
-	ArrayList<Review> reviews = dao.selectAll();
 	
 	@Override
 	public void writeReview(Review review) {
-		reviews.add(review);
+		dao.insertReview(review);
 	}
 
 	@Override
 	public Review getReview(int id) {
-		for (int i=0; i<reviews.size(); i++) {
-			if (reviews.get(i).getReviewId() == id) return reviews.get(i);
-		}
-		return null;
+		return dao.selectOne(id);
 	}
 
 	@Override
 	public void modifyReview(Review review) {
-		for (int i=0; i<reviews.size(); i++) {
-			if (reviews.get(i).getReviewId() == review.getReviewId()) {
-				Review re = reviews.get(i);
-				reviews.set(i, review);
-			}
-		}
+		dao.updateReview(review);
 	}
 
 	@Override
 	public void removeReview(int id) {
-		for (int i=0; i<reviews.size(); i++) {
-			if (reviews.get(i).getReviewId() == id) reviews.remove(i);
-		}
+		dao.deleteReview(id);
 	}
 
 	@Override
-	public List<Review> getList() {
-		return reviews;
+	public List<Review> getList(String videoId) {
+		return dao.selectReview(videoId);
 	}
 
 }
