@@ -106,30 +106,34 @@ public class ReviewController extends HttpServlet {
 	private void doCreate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
+		String videoId = request.getParameter("videoId");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		request.setAttribute("title", title);
-		request.setAttribute("content", content);
+		Review review = new Review(videoId, reviewList.size(), title, "김싸피", content, 0);
+		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewCreate.jsp").forward(request, response);
 	}
 
 	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		
-		request.setAttribute("title", title);
-		request.setAttribute("content", content);
+		Review review = (Review) request.getAttribute("review");
+		int reviewId = review.getReviewId();
+		int viewCnt = service.getReview(reviewId).getViewCnt();
+		service.getReview(reviewId).setViewCnt(viewCnt++);
+		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
 	private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Review review = (Review) request.getAttribute("review");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		request.setAttribute("title", title);
-		request.setAttribute("content", content);
+		review.setTitle(title);
+		review.setContent(content);
+		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
