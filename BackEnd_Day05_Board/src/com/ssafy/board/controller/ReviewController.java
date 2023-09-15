@@ -15,7 +15,7 @@ import com.ssafy.board.moel.service.BoardService;
 import com.ssafy.board.moel.service.BoardServiceImpl;
 
 @WebServlet("/main")
-public class BoardController extends HttpServlet {
+public class ReviewController extends HttpServlet {
 	
 	List<Video> videosByView = new ArrayList<>();
 	List<Video> videosByPart = new ArrayList<>();
@@ -72,9 +72,9 @@ public class BoardController extends HttpServlet {
 	}
 	
 	private void doMain(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("videosByView", videosByView);
-		request.setAttribute("videosByPart", videosByPart);
-		request.getRequestDispatcher("/board/main.jsp").forward(request, response);
+		request.setAttribute("videosByView", videosByView.get(0));
+		request.setAttribute("videosByPart", videosByPart.get(0));
+		request.getRequestDispatcher("/board/main").forward(request, response);
 	}
 
 	private void doReviewList(HttpServletRequest request, HttpServletResponse response) {
