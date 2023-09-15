@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ssafy.board.model.dto.Video;
-import com.ssafy.board.moel.service.BoardService;
-import com.ssafy.board.moel.service.BoardServiceImpl;
+//import com.ssafy.board.moel.service.BoardService;
+//import com.ssafy.board.moel.service.BoardServiceImpl;
 import com.ssafy.board.moel.service.ReviewService;
 import com.ssafy.board.moel.service.ReviewServiceImpl;
 
@@ -76,13 +76,16 @@ public class ReviewController extends HttpServlet {
 	private void doMain(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("videosByView", videosByView.get(0));
 		request.setAttribute("videosByPart", videosByPart.get(0));
-		request.getRequestDispatcher("/board/main").forward(request, response);
+		request.getRequestDispatcher("/board/main.jsp").forward(request, response);
 	}
 
-	private void doReviewList(HttpServletRequest request, HttpServletResponse response) {
+	private void doReviewList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		request.setAttribute("", )
-//		request.
+		String videoId = (String) request.getAttribute("videoId");
+		
+		
+		request.getRequestDispatcher("/board.reviewList.jsp").forward(request, response);
+		
 	}
 
 	private void doCreate(HttpServletRequest request, HttpServletResponse response) {
