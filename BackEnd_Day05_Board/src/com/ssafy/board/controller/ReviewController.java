@@ -63,6 +63,9 @@ public class ReviewController extends HttpServlet {
 		case "reviewDetail":
 			doDetail(request, response);
 			break;
+		case "goUpdate":
+			goUpdate(request, response);
+			break;
 		case "reviewUpdate":
 			doUpdate(request, response);
 			break;
@@ -95,6 +98,8 @@ public class ReviewController extends HttpServlet {
 
 		String videoId = request.getParameter("videoId");
 		String url = request.getParameter("url");
+		System.out.println("여기 잘 보여? videoId, url: "+videoId+" "+url);
+		
 		List<Review> reviewList = service.getList(videoId);
 		request.setAttribute("reviewList", reviewList);
 		request.setAttribute("videoId", videoId);
@@ -105,18 +110,17 @@ public class ReviewController extends HttpServlet {
 
 	private void doCreate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
 		String videoId = request.getParameter("videoId");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		System.out.println("title: "+title+" content: "+content);
 		Review review = new Review(videoId, reviewList.size(), title, "김싸피", content, 0);
 		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewCreate.jsp").forward(request, response);
 	}
 
 	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		Review review = (Review) request.getAttribute("review");
 		int reviewId = review.getReviewId();
@@ -125,7 +129,27 @@ public class ReviewController extends HttpServlet {
 		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
+	
+	// 수정창으로 이동 -> 수정할 때 비디오 정보를 보내줘야 하기 때문에
+	private void goUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Review review = (Review) request.getAttribute("review");
+		request.setAttribute("review", review);
+		request.getRequestDispatcher("/board/editReview.jsp").forward(request, response);
+	}
+	
+	// 작성 창으로 이동 -> 작성할 때 비디오 아이디 정보 보내줘야 함	
+	private void goWrite(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String videoId = request.getParameter("videoId");
+		request.setAttribute("videoId", videoId);
+		request.getRequestDispatcher("/board/addReview.jsp").forward(request, response);
+	}
 
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Review review = (Review) request.getAttribute("review");
+		int reviewId = review.getReviewId();
+		service.removeReview(reviewId);
+	}
+	
 	private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Review review = (Review) request.getAttribute("review");
@@ -137,11 +161,5 @@ public class ReviewController extends HttpServlet {
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
-//	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
-//		// TODO Auto-generated method stub
-//	}
-//	private void doDelete(HttpServletRequest request, HttpServletResponse response) {
-//		// TODO Auto-generated method stub
-//	}
 
 }

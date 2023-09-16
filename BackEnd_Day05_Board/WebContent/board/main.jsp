@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>SSAFIT</title>
-<link rel="stylesheet" href="/css/main.css" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link
@@ -17,7 +16,17 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-	crossorigin="anonymous"></script>
+	crossorigin="anonymous">
+	
+</script>
+<script>
+	function redirectToReviewList(videoId, url) {
+		// 선택한 비디오의 정보를 Controller로 전송
+		console.log(videoId, url);
+		window.location.href = './main?act=reviewList&videoId=' + videoId
+				+ '&url=' + url;
+	}
+</script>
 <style>
 * {
 	margin: 0;
@@ -82,12 +91,12 @@ input {
 	<header>
 		<nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
-				<a class="navbar-brand" id="page-name" href="/main/main.html">SSAFIT</a>
+				<a class="navbar-brand" id="page-name" href="./main?act=main">SSAFIT</a>
 				<div class="justify-end d-flex" id="navbarScroll">
 					<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 						style="-bs-scroll-height: 100px;">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/main/main.html">HOME</a></li>
+							aria-current="page" href="./main?act=main">HOME</a></li>
 
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" role="button"
@@ -135,7 +144,8 @@ input {
 			<div
 				class="shadow pe-3 ps-3 pt-4 pb-4 d-flex video-list w-100 justify-content-around">
 				<c:forEach items="${videosByView }" var="video">
-					<div onclick="location.href='./main?act=reviewList'"
+					<div
+						onclick="redirectToReviewList('${video.videoId}', '${video.url}')"
 						style="cursor: pointer; width: 30%;">
 						<div class="text-wrap fw-bold">
 							<div class="text-center">
@@ -163,7 +173,8 @@ input {
 			<div
 				class="shadow pe-3 ps-3 pt-4 pb-4 d-flex video-list w-100 justify-content-around">
 				<c:forEach items="${videosByPart }" var="video">
-					<div onclick="location.href='./main?act=reviewList'"
+					<div
+						onclick="redirectToReviewList('${video.videoId}', '${video.url}')"
 						style="cursor: pointer; width: 30%;">
 						<div class="text-wrap fw-bold">
 							<div class="text-center">

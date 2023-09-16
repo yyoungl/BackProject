@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>SSAFIT</title>
-<link rel="stylesheet" href="/css/main.css" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link
@@ -80,11 +79,11 @@ input {
 	 <header>
         <nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" id="page-name" href="../main/main.html">SSAFIT</a>
+                <a class="navbar-brand" id="page-name" href="/board/main.jsp">SSAFIT</a>
                 <div class="justify-end d-flex" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/main/main.html">HOME</a>
+                    <a class="nav-link active" aria-current="page" href="/board/main.jsp">HOME</a>
                     </li>
     
                     <li class="nav-item dropdown">
@@ -117,23 +116,23 @@ input {
                 <hr class="mb-3">
                 
                 <div class="d-flex justify-content-between">
-                    <button type="button" onclick="location.href='reviewList.html'" class="w-20 me-2 btn btn-outline-primary">목록</button>
+                    <button type="button" onclick="location.href='./main?act=doreviewList'" class="w-20 me-2 btn btn-outline-primary">목록</button>
                     <div class="d-flex">
-                        <button type="button" onclick="location.href='reviewEdit.html'" class="float-end w-20 me-2 btn btn-outline-primary">글 수정</button>
-                        <button type="button" onclick="location.href='reviewList.html'" class="float-end w-20 btn btn-outline-danger">글 삭제</button>
+                        <button type="button" onclick="location.href='./main?act=goUpdate'" class="float-end w-20 me-2 btn btn-outline-primary">글 수정</button>
+                        <button type="button" onclick="location.href='./main?act=reviewDelete'" class="float-end w-20 btn btn-outline-danger">글 삭제</button>
                     </div>
                 </div>
     
                 <div class="shadow-sm mb-3 text-center border p-4 mt-3">
                     <div class="p-2">
-                        <h3 class="fs-5 fw-medium">와~효과만점 운동 영상입니다.</h3>
-                        <div>작성자: a</div>
-                        <div>작성일: 2022-01-05 01:32:37</div>
-                        <div>조회수: 1</div>
+                        <h3 class="fs-5 fw-medium">${review.content }</h3>
+                        <div>작성자: ${review.writer }</div>
+                        <div>작성일: ${review.regDate }</div>
+                        <div>조회수: ${review.viewCnt }</div>
                     </div>
                     <hr>
                     <div class="p-2">
-                        <div>강추!! 강추!!</div>
+                        <div>${review.content }</div>
                     </div>
                 </div>
     

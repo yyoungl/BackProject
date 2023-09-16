@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>SSAFIT</title>
-<link rel="stylesheet" href="/css/main.css" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link
@@ -81,11 +80,11 @@ input {
 <header>
     <nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" id="page-name" href="../main/main.html">SSAFIT</a>
+            <a class="navbar-brand" id="page-name" href="/board.main.jsp">SSAFIT</a>
             <div class="justify-end d-flex" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/main/main.html">HOME</a>
+                <a class="nav-link active" aria-current="page" href="/board.main.jsp">HOME</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -119,16 +118,16 @@ input {
 
             <div class="mb-3">
                 <label for="inputTitle" class="col-form-label">제목</label>
-                <input type="text" class="form-control" id="inputEmail3" name="title" placeholder="제목을 입력하세요">
+                <input  name="title" type="text" class="form-control" id="inputEmail3" placeholder="제목을 입력하세요">
             </div>
 
             <div class="mb-4">
                 <label for="inputContent" class="col-form-label">내용</label>
-                <textarea class="form-control" rows="3" name="content" placeholder="내용을 입력하세요"></textarea>
+                <textarea name="content" class="form-control" rows="3"  placeholder="내용을 입력하세요"></textarea>
             </div>
 
-            <button type="button" onclick="location.href='./main?act=reviewCreate'" class="w-20 me-2 btn btn-outline-primary">등록</button>
-            <button type="button" onclick="location.href='./main?act=reviewList'" class="w-20 btn btn-outline-danger">취소</button>
+            <button type="button" onclick="location.href='../main?act=reviewCreate'" class="w-20 me-2 btn btn-outline-primary">등록</button>
+            <button type="button" onclick="location.href='../main?act=reviewList'" class="w-20 btn btn-outline-danger">취소</button>
         
         </form>
     </div>
