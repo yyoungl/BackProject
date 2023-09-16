@@ -81,6 +81,12 @@ public class Review {
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
 	}
+
+	@Override
+	public String toString() {
+		return "Review [videoId=" + videoId + ", reviewId=" + reviewId + ", title=" + title + ", writer=" + writer
+				+ ", regDate=" + regDate + ", content=" + content + ", viewCnt=" + viewCnt + "]";
+	}
 	
 	
 }

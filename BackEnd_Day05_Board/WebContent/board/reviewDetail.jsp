@@ -79,7 +79,7 @@ input {
 	 <header>
         <nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" id="page-name" href="/board/main.jsp">SSAFIT</a>
+                <a class="navbar-brand" id="page-name" href="./main?act=main">SSAFIT</a>
                 <div class="justify-end d-flex" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
@@ -116,10 +116,10 @@ input {
                 <hr class="mb-3">
                 
                 <div class="d-flex justify-content-between">
-                    <button type="button" onclick="location.href='./main?act=doreviewList'" class="w-20 me-2 btn btn-outline-primary">목록</button>
+                    <button type="button" onclick="location.href='./main?act=reviewList&videoId=${videoId }&url=${url }'" class="w-20 me-2 btn btn-outline-primary">목록</button>
                     <div class="d-flex">
-                        <button type="button" onclick="location.href='./main?act=goUpdate'" class="float-end w-20 me-2 btn btn-outline-primary">글 수정</button>
-                        <button type="button" onclick="location.href='./main?act=reviewDelete'" class="float-end w-20 btn btn-outline-danger">글 삭제</button>
+                        <button type="button" onclick="location.href='./main?act=goReviewUpdate&videoId=${videoId}&url=${url }&reviewId=${review.reviewId }'" class="float-end w-20 me-2 btn btn-outline-primary">글 수정</button>
+                        <button type="button" onclick="location.href='./main?act=reviewDelete&videoId=${videoId}&url=${url }&reviewId=${review.reviewId }'" class="float-end w-20 btn btn-outline-danger">글 삭제</button>
                     </div>
                 </div>
     

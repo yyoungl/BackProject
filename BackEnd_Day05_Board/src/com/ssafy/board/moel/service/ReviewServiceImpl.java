@@ -26,18 +26,18 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public Review getReview(int id) {
-		return dao.selectOne(id);
+	public Review getReview(String videoId, int reviewId) {
+		return dao.selectOne(videoId, reviewId);
 	}
 
 	@Override
-	public void modifyReview(Review review) {
-		dao.updateReview(review);
+	public void modifyReview(String videoId, int reviewId, String newTitle, String newContent) {
+		dao.updateReview(videoId, reviewId, newTitle, newContent);
 	}
 
 	@Override
-	public void removeReview(int id) {
-		dao.deleteReview(id);
+	public void removeReview(String videoId, int reviewId) {
+		dao.deleteReview(videoId, reviewId);
 	}
 
 	@Override

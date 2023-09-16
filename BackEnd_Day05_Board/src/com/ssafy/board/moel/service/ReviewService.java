@@ -4,13 +4,16 @@ import java.util.List;
 
 import com.ssafy.board.model.dto.Review;
 
-
 public interface ReviewService {
-	
+
 	List<Review> getList(String videoId);
+
 	void writeReview(Review review);
-	Review getReview(int id);
-	void modifyReview(Review review);
-	void removeReview(int reviewId);
-	
+
+	Review getReview(String videoId, int reviewId);
+
+	void modifyReview(String videoId, int reviewId, String newTitle, String newContent);
+
+	void removeReview(String videoId, int reviewId);
+
 }

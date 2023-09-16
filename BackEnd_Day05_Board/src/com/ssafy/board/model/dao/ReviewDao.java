@@ -15,13 +15,13 @@ public interface ReviewDao {
 	void insertReview(Review review);
 
 	// 게시글 상세 조회
-	Review selectOne( int reviewId);
+	Review selectOne(String videoId, int reviewId);
 
 	// 게시글 수정
-	void updateReview(Review review);
+	void updateReview(String videoId, int reviewId, String newTitle, String newContent);
 
 	// 게시글 삭제
-	void deleteReview(int reviewId);
+	void deleteReview(String videoId, int reviewId);
 	
 	ArrayList<Review> selectAll();
 

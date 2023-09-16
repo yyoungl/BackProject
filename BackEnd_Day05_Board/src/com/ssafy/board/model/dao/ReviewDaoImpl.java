@@ -2,6 +2,7 @@ package com.ssafy.board.model.dao;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class ReviewDaoImpl implements ReviewDao {
 
 	private static ReviewDao dao = new ReviewDaoImpl();
 
-	private ArrayList<Review> reviews = new ArrayList<>();
+	private static ArrayList<Review> reviews = new ArrayList<>();
 
 	
 	public static ReviewDao getInstance() {
@@ -36,9 +37,9 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	@Override
-	public Review selectOne(int reviewId) {
+	public Review selectOne(String videoId, int reviewId) {
 		for (int i = 0; i < reviews.size(); i++) {
-			if (reviews.get(i).getReviewId() == reviewId) {
+			if (reviews.get(i).getVideoId().equals(videoId) && reviews.get(i).getReviewId() == reviewId) {
 				return reviews.get(i);
 			}
 		}
@@ -46,20 +47,20 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	@Override
-	public void updateReview(Review review) {
+	public void updateReview(String videoId, int reviewId, String newTitle, String newContent) {
 		for (int i = 0; i < reviews.size(); i++) {
-			if (reviews.get(i).getReviewId() == review.getReviewId()) {
-				Review re = reviews.get(i);
-				
-				reviews.set(i, review);
+			if (reviews.get(i).getVideoId().equals(videoId) && reviews.get(i).getReviewId() == reviewId) {
+				reviews.get(i).setTitle(newTitle);
+				reviews.get(i).setContent(newContent);
+				reviews.get(i).setRegDate(new Date().toString());
 			}
 		}
 	}
 
 	@Override
-	public void deleteReview(int reviewId) {
+	public void deleteReview(String videoId, int reviewId) {
 		for (int i = 0; i < reviews.size(); i++) {
-			if (reviews.get(i).getReviewId() == reviewId)
+			if (reviews.get(i).getVideoId().equals(videoId) && reviews.get(i).getReviewId() == reviewId)
 				reviews.remove(i);
 		}
 	}

@@ -80,7 +80,7 @@ input {
 	<header>
         <nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand" id="page-name" href="/main/main.html">SSAFIT</a>
+              <a class="navbar-brand" id="page-name" href="./main?act=main">SSAFIT</a>
               <div class="justify-end d-flex" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                   <li class="nav-item">
@@ -128,7 +128,7 @@ input {
 
 				<div class="d-flex justify-content-between">
 					<button type="button"
-						onclick="location.href='./main?act=reviewCreate&videoId='+${videoId}"
+						onclick="location.href='./main?act=goReviewCreate&videoId=${videoId}&url=${url}'"
 						class="w-20 me-2 btn btn-outline-primary">글 작성</button>
 					<div style="border-bottom: solid gray 1px;"
 						class="d-flex align-items-center">
@@ -152,10 +152,10 @@ input {
 							<th class="border-bottom p-3">작성시간</th>
 						</tr>
 						<c:forEach items="${reviewList}" var="review">
-							<tr onclick="location.href='./main?act=reviewDetail'"
+							<tr onclick="location.href='./main?act=reviewDetail&videoId=${videoId}&url=${url }&reviewId=${review.reviewId }'"
 								style="cursor: pointer; text-decoration: underline;"
 								class="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">
-								<td class="p-3">4</td>
+								<td class="p-3">${review.reviewId }</td>
 								<td class="p-3">${review.title }</td>
 								<td class="p-3">${review.writer }</td>
 								<td class="p-3">${review.viewCnt }</td>

@@ -57,16 +57,19 @@ public class ReviewController extends HttpServlet {
 		case "reviewList":
 			doReviewList(request, response);
 			break;
-		case "reviewCreate":
+		case "goReviewCreate":
+			goCreate(request, response);
+			break;
+		case "doReviewCreate":
 			doCreate(request, response);
 			break;
 		case "reviewDetail":
 			doDetail(request, response);
 			break;
-		case "goUpdate":
+		case "goReviewUpdate":
 			goUpdate(request, response);
 			break;
-		case "reviewUpdate":
+		case "doReviewUpdate":
 			doUpdate(request, response);
 			break;
 		case "reviewDelete":
@@ -98,8 +101,8 @@ public class ReviewController extends HttpServlet {
 
 		String videoId = request.getParameter("videoId");
 		String url = request.getParameter("url");
-		System.out.println("여기 잘 보여? videoId, url: "+videoId+" "+url);
-		
+		System.out.println("여기 잘 보여? videoId, url: " + videoId + " " + url);
+
 		List<Review> reviewList = service.getList(videoId);
 		request.setAttribute("reviewList", reviewList);
 		request.setAttribute("videoId", videoId);
@@ -108,58 +111,99 @@ public class ReviewController extends HttpServlet {
 
 	}
 
-	private void doCreate(HttpServletRequest request, HttpServletResponse response)
+	// 작성 창으로 이동 -> 작성할 때 비디오 아이디 정보 보내줘야 함
+	private void goCreate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
-		String videoId = request.getParameter("videoId");
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		System.out.println("title: "+title+" content: "+content);
-		Review review = new Review(videoId, reviewList.size(), title, "김싸피", content, 0);
-		request.setAttribute("review", review);
-		request.getRequestDispatcher("/board/reviewCreate.jsp").forward(request, response);
-	}
-
-	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Review review = (Review) request.getAttribute("review");
-		int reviewId = review.getReviewId();
-		int viewCnt = service.getReview(reviewId).getViewCnt();
-		service.getReview(reviewId).setViewCnt(viewCnt++);
-		request.setAttribute("review", review);
-		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
-	}
-	
-	// 수정창으로 이동 -> 수정할 때 비디오 정보를 보내줘야 하기 때문에
-	private void goUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Review review = (Review) request.getAttribute("review");
-		request.setAttribute("review", review);
-		request.getRequestDispatcher("/board/editReview.jsp").forward(request, response);
-	}
-	
-	// 작성 창으로 이동 -> 작성할 때 비디오 아이디 정보 보내줘야 함	
-	private void goWrite(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String videoId = request.getParameter("videoId");
+		String url = request.getParameter("url");
 		request.setAttribute("videoId", videoId);
+		request.setAttribute("url", url);
 		request.getRequestDispatcher("/board/addReview.jsp").forward(request, response);
 	}
 
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Review review = (Review) request.getAttribute("review");
-		int reviewId = review.getReviewId();
-		service.removeReview(reviewId);
-	}
-	
-	private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Review review = (Review) request.getAttribute("review");
+	private void doCreate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String videoId = request.getParameter("videoId");
+		int reviewId = service.getList(videoId).size();
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		review.setTitle(title);
-		review.setContent(content);
+		Review review = new Review(videoId, reviewId + 1, title, "김싸피", content, 0);
+		service.writeReview(review);
+
+//		for (Review r : service.getList(videoId)) System.out.println(r.toString());
+
+		String url = request.getParameter("url");
+
+		request.setAttribute("videoId", videoId);
+		request.setAttribute("url", url);
+		request.setAttribute("reviewList", service.getList(videoId));
+		request.getRequestDispatcher("/board/reviewList.jsp").forward(request, response);
+	}
+
+	private void doDetail(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String videoId = request.getParameter("videoId");
+		String url = request.getParameter("url");
+		int reviewId = Integer.parseInt(request.getParameter("reviewId"));
+		Review review = service.getReview(videoId, reviewId);
+		int viewCnt = review.getViewCnt();
+		service.getReview(videoId, reviewId).setViewCnt(viewCnt + 1);
+		System.out.println("조회수" + " " + viewCnt++);
+
+		request.setAttribute("videoId", videoId);
+		request.setAttribute("url", url);
 		request.setAttribute("review", review);
 		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
 	}
 
+	// 수정창으로 이동 -> 수정할 때 비디오 정보를 보내줘야 하기 때문에
+	private void goUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String videoId = request.getParameter("videoId");
+		String url = request.getParameter("url");
+		int reviewId = Integer.parseInt(request.getParameter("reviewId"));
+		Review review = service.getReview(videoId, reviewId);
+
+		request.setAttribute("videoId", videoId);
+		request.setAttribute("url", url);
+		request.setAttribute("review", review);
+		request.getRequestDispatcher("/board/editReview.jsp").forward(request, response);
+	}
+
+	private void doUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String videoId = request.getParameter("videoId");
+		String url = request.getParameter("url");
+		int reviewId = Integer.parseInt(request.getParameter("reviewId"));
+		Review review = service.getReview(videoId, reviewId);
+		String newTitle = request.getParameter("title");
+		String newContent = request.getParameter("content");
+		service.modifyReview(videoId, reviewId, newTitle, newContent);
+		System.out.println(newTitle + " " + newContent);
+
+		request.setAttribute("videoId", videoId);
+		request.setAttribute("url", url);
+		request.setAttribute("review", review);
+		request.getRequestDispatcher("/board/reviewDetail.jsp").forward(request, response);
+	}
+
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String videoId = request.getParameter("videoId");
+		String url = request.getParameter("url");
+		int reviewId = Integer.parseInt(request.getParameter("reviewId"));
+		service.removeReview(videoId, reviewId);
+		List<Review> reviewList = service.getList(videoId);
+		
+		request.setAttribute("reviewList", reviewList);
+		request.setAttribute("videoId", videoId);
+		request.setAttribute("url", url);
+		request.getRequestDispatcher("/board/reviewList.jsp").forward(request, response);
+	}
 
 }
